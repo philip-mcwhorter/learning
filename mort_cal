@@ -1,0 +1,31 @@
+#fixed variables
+
+interest_rate = 3.75
+property_tax = 0.0167
+num_payments_yr = 12
+term = 30
+total_mon = num_payments_yr*term
+escrow = int(1046.88-257.36)
+
+def mort(principal):
+    rate_adjust = interest_rate/1200
+    rate_monthly = (1+rate_adjust)**total_mon
+    prin_form = (rate_adjust*rate_monthly)/(rate_monthly-1)
+    mon_princ = principal*prin_form
+    mon_payment = mon_princ + escrow
+    return int(mon_payment)
+
+def calculator ():
+    while True:
+        x = int(input("Input New Home Price"))
+        principal = x - (x*.2)   
+        mortage_payment_month = mort(principal)
+        if mortage_payment_month <= 1500:
+            print("Yay! You can afford this house!")
+            break
+        else:
+            print("Bummer. Try again.")
+            continue
+            
+            
+calculator ()
