@@ -10,7 +10,7 @@ totalMonths = numberPaymentsPerYear * term
 escrow = int(1046.88-257.36)
 principalPercent = .2
 affordableMortgage = 1500
-inputMessage = "Input New Home Price"
+inputMessage = "Input New Home Price: "
 successMessage = "Yay! You can afford this house!"
 failureMessage = "Bummer. Try again."
 
@@ -26,7 +26,7 @@ def calculator():
     while True:
         x = int(input(inputMessage))
         principal = x - (x * principalPercent)   
-        mortage_payment_month = mort(principal)
+        mortage_payment_month = mortgage(principal)
         if mortage_payment_month <= affordableMortgage:
             print(successMessage)
             break
